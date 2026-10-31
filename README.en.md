@@ -111,28 +111,6 @@ codex-pulse-cli --once
 
 ---
 
-## Official Model Pricing & Multipliers
-
-Each response record (across the main thread and any spawned subagent threads) is priced individually:
-
-- **Long-Context Multiplier (`> 272K` input tokens on GPT-5.4+ / GPT-6 / GPT-6.1)**: When a request has `input_tokens > 272,000`, the entire request is billed at **`2×`** for input/cached/cache-write tokens and **`1.5×`** for output tokens.
-- **Fast / Priority Tier (`service_tier = "priority"` / `"fast"`)**: Applies a **`2×`** multiplier across input, cached input, and output (stacking to **`4×`** input/cached and **`3×`** output when `> 272K`); `flex` / `batch` applies **`0.5×`**.
-
-| Model (USD per 1M tokens) | Input (`<=272K`) | Cached Input | Output | Long Context (`>272K`) | Fast Mode (`2×`) |
-| --- | --- | --- | --- | --- | --- |
-| **GPT-6.1 Sol** (`gpt-6.1-sol`) | `$2.00` | `$0.10` | `$10.00` | `$4.00 / $0.20 / $15.00` | `$4.00 / $0.20 / $20.00` |
-| **GPT-6 Astra** (`gpt-6-astra`) | `$10.00` | `$1.00` | `$50.00` | `$20.00 / $2.00 / $75.00` | `$20.00 / $2.00 / $100.00` |
-| **GPT-6.1 Terra** (`gpt-6.1-terra`) | `$1.00` | `$0.05` | `$5.00` | `$2.00 / $0.10 / $7.50` | `$2.00 / $0.10 / $10.00` |
-| **GPT-6 Sol** (`gpt-6-sol`) | `$2.00` | `$0.20` | `$10.00` | `$4.00 / $0.40 / $15.00` | `$4.00 / $0.40 / $20.00` |
-| **GPT-6 Luna** (`gpt-6-luna`) | `$0.10` | `$0.01` | `$0.50` | `$0.20 / $0.02 / $0.75` | `$0.20 / $0.02 / $1.00` |
-| **GPT-5.6 Sol** (`gpt-5.6-sol`) | `$4.00` | `$0.40` | `$20.00` | `$8.00 / $0.80 / $30.00` | `$8.00 / $0.80 / $40.00` |
-| **GPT-5.6 Terra** (`gpt-5.6-terra`) | `$2.00` | `$0.20` | `$12.00` | `$4.00 / $0.40 / $18.00` | `$4.00 / $0.40 / $24.00` |
-| **GPT-5.6 Luna** (`gpt-5.6-luna` / `gpt-reserve`) | `$0.20` | `$0.02` | `$1.20` | `$0.40 / $0.04 / $1.80` | `$0.40 / $0.04 / $2.40` |
-
-Also includes built-in pricing for `codex-auto-review`, `gpt-5.5`, `gpt-5.4` (`mini` / `nano`), `gpt-5.3-codex` (`spark`), `gpt-5.2-codex`, `gpt-5.1-codex-max` / `mini`, `gpt-5-codex` / `mini` / `nano`, `codex-mini-latest`, `o3`, `o4-mini`, and `gpt-4.1` (see [`codex_pulse/pricing.py`](codex_pulse/pricing.py)).
-
----
-
 ## Configuration
 
 Settings are persisted at `%APPDATA%\CodexPulse\settings.json`:
