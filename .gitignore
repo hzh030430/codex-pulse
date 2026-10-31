@@ -1,0 +1,21 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging & release artifacts
+build/
+dist/
+*.egg-info/
+*.pyz
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Local diagnostics & OS files
+codex-window-diagnose.txt
+*.log
+.DS_Store
+Thumbs.db

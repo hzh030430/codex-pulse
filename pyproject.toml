@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-pulse"
+version = "1.0.0"
+description = "Non-intrusive floating status bar and real-time token, cache, TPS, API cost, and quota dashboard docked to OpenAI Codex Desktop on Windows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "hzh030430" },
+]
+keywords = [
+    "codex",
+    "openai",
+    "windows",
+    "overlay",
+    "status-bar",
+    "token-usage",
+    "cost-tracker",
+    "tkinter",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/hzh030430/codex-pulse"
+Repository = "https://github.com/hzh030430/codex-pulse"
+Issues = "https://github.com/hzh030430/codex-pulse/issues"
+Releases = "https://github.com/hzh030430/codex-pulse/releases"
+
+[project.gui-scripts]
+codex-pulse = "codex_pulse.__main__:main"
+
+[project.scripts]
+codex-pulse-cli = "codex_pulse.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["codex_pulse*"]
+
+[tool.setuptools.package-data]
+codex_pulse = ["assets/*.ico"]
